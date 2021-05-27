@@ -1,10 +1,12 @@
 # Django
+from django.contrib.auth.views import LoginView
 from django.urls import path
 
 # Views
-from users.views import main
+from users.views import main, Login
 
 app_name = 'users'
 urlpatterns = [
-    path('users', main)
+    path('', main),
+    path('login', Login.as_view(), name='login'),
 ]

@@ -25,7 +25,3 @@ class User(DateModel, AbstractUser):
     def __str__(self):
         """Return username."""
         return self.username
-
-    def get_short_name(self):
-        """Return username."""
-        return self.username
