@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Utilities
+# Models
 from utils.models import DateModel
 
 

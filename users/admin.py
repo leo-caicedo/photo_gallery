@@ -1,9 +1,12 @@
 # Django
 from django.contrib import admin
-from django.contrib.admin.decorators import register
-from django.shortcuts import redirect
 
 # Models
 from users.models import User
 
-admin.site,register(User)
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+
+    list_display = ('pk', 'username', 'email')
+    list_display_links = ('pk', 'username',)

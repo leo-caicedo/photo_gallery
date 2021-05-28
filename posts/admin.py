@@ -2,6 +2,12 @@
 from django.contrib import admin
 
 # Models
-from users.models import User
+from posts.models import Post
 
-admin.site.register(User)
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+
+    list_display = ('pk', 'user', 'title', 'photo')
+    list_display_links = ('pk', 'user',)
+    list_editable = ('title', 'photo')
