@@ -6,5 +6,5 @@ from posts.views import main
 
 app_name = 'posts'
 urlpatterns = [
-    path('', main)
+    path('', main, name='feed')
 ]
