@@ -1,6 +1,6 @@
 # Django
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
@@ -38,3 +38,9 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['title', 'photo']
     success_url = reverse_lazy('posts:feed')
 
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+
+    model = Post
+    context_object_name = 'post'
+    success_url = reverse_lazy('posts:feed')
