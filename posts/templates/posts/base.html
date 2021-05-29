@@ -2,6 +2,7 @@
 {% for post in posts %}
     <p>{{ post.title }}</p>
     <p>{{ post.user }}</p>
-    <img src="{{ post.photo.url }}" alt="">
+    <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+    <a href="{% url 'posts:update' post.pk %}">Edit</a>
 {% endfor %}
 <h2><a href="{% url 'users:logout' %}">logout</a></h2>
