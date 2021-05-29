@@ -1,6 +1,7 @@
+<h1><a href="{% url 'posts:create' %}">New photo</a></h1>
 {% for post in posts %}
-    <img src="{{ post.photo.url }}" alt="">
     <p>{{ post.title }}</p>
     <p>{{ post.user }}</p>
+    <img src="{{ post.photo.url }}" alt="">
 {% endfor %}
 <h2><a href="{% url 'users:logout' %}">logout</a></h2>

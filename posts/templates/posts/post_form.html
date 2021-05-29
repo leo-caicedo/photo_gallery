@@ -1,0 +1,9 @@
+<h1>New photo</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'posts:feed' %}">Go back</a>

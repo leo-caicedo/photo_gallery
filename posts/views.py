@@ -1,7 +1,8 @@
 # Django
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 # Models
 from posts.models import Post
@@ -18,3 +19,14 @@ class PostFeedView(LoginRequiredMixin, ListView):
         context['posts'] = context['posts'].filter(user=self.request.user)
 
         return context
+
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    
+    model = Post
+    fields = ['title', 'photo']
+    success_url = reverse_lazy('posts:feed')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PostCreateView, self).form_valid(form)
