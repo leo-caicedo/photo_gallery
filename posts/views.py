@@ -15,6 +15,6 @@ class PostFeedView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = context['posts'].filter(user=self.request)
+        context['posts'] = context['posts'].filter(user=self.request.user)
 
         return context
